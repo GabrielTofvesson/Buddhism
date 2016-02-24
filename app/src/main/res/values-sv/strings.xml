@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="got_it">JAG FÖRSTÅR</string>
+    <string name="navigation_drawer_close">Stäng navigationsfältet</string>
+    <string name="navigation_drawer_open">Öppna navigationsfältet</string>
+    <string name="signoff">Från Gabriel Tofvesson</string>
+    <string name="welcome1">Hej!\nDenna applikation skapades med syfte att att ge svar på tre frågor angående Buddhism som ställts av Helena Sontag till mig och min klass som en examination.</string>
+    <string name="welcome2">Dra med fingret från vänster sida av skärmen mot den högra eller tryck på den befintliga ikonen för att öppna navigationsfältet. Tryck sedan på det svar du vill läsa.</string>
+    <string name="question1">Gör en reflekterande jämförelse mellan hinduismen och buddhismen, vilka likheter och skillnader finns det?</string>
+    <string name="question2">Hur uppnår man Nirvana enligt buddhismen, kan uppfattningen variera mellan de olika buddhistiska inriktningarna? </string>
+    <string name="question3">Buddha menade att människans livstörst gör livet till ett lidande. Vad menar han med det och vad är i sådana fall sann lycka?</string>
+</resources>

@@ -1,10 +1,13 @@
 <resources>
-    <string name="app_name">Buddhism</string>
+    <string name="app_name" translatable="false">Buddhism</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
     <string name="welcome1">Hello!\nThis application was designed with the express intent of giving the answers to three distinct questions regarding Buddhism assigned to me (and the rest of my class) by Helena Sontag.</string>
-    <string name="welcome2">To begin, swipe from the left of your screen to open the navigation bar. Simply click on the answer you would like to view from the navigation bar to navigate to the corresponding answer.</string>
+    <string name="welcome2">To begin, swipe from the left of your screen or tap the marked icon to open the navigation bar. Simply click on the answer you would like to view from the navigation bar to navigate to the corresponding answer.</string>
     <string name="signoff">Sincerely, Gabriel Tofvesson</string>
+    <string name="got_it">GOT IT</string>
+    <string name="question1">Reflect upon the apsects of both Buddhism and Hiduism and make a comparison between them. What are their similarities and what are their differences?</string>
+    <string name="question2">How does one achieve Nirvana according to Buddhism? Do these beliefs vary based on which subset of Buddhism one believes in?</string>
+    <string name="question3">According to Buddha, peoples thirst for life makes life torturous. What does he mean by that and what, in that case, is true joy?</string>
 </resources>

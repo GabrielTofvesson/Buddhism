@@ -1,20 +1,18 @@
 package com.gabriel.buddhism;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
@@ -26,43 +24,46 @@ import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private Toolbar toolbar;
+    private ActionBarDrawerToggle toggle;
     private int introCounter;
-    private FloatingActionButton fab;
+    private ShowcaseView overlay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         introCounter=0;
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close){
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                if(overlay==null) drawer.closeDrawer(GravityCompat.START);
+                else overlay.hide();
+            }
+        };
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        intro();
+        new Thread(new Runnable() {@Override public void run() {
+                try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                new Handler(Looper.getMainLooper()).post(new Runnable() {@Override public void run() {intro();}});}}).start();
+        findViewById(R.id.main).setVisibility(View.GONE);
     }
     public void intro(){
         if(introCounter==0){
             ++introCounter;
             new ShowcaseView.Builder(this)
-                    .setContentTitle("Showcasing!")
-                    .setContentText("This is a 'Floating Action Button'!")
-                    .withHoloShowcase()
+                    .replaceEndButton((Button) getLayoutInflater().inflate(R.layout.got_it, (RelativeLayout) findViewById(R.id.main_parent), false))
+                    .setContentTitle("Welcome")
+                    .setContentText(getResources().getText(R.string.welcome1))
                     // .replaceEndButton((Button) getLayoutInflater().inflate(R.layout.bye_button, (RelativeLayout) findViewById(R.id.main_parent), false))
-                    .hideOnTouchOutside()
                     .setShowcaseEventListener(new OnShowcaseEventListener(){
                         @Override
                         public void onShowcaseViewHide(ShowcaseView showcaseView) {
@@ -71,7 +72,55 @@ public class MainActivity extends AppCompatActivity
 
                         @Override
                         public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
-                            intro();
+                            new Thread(new Runnable() {@Override public void run() {
+                                try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                                new Handler(Looper.getMainLooper()).post(new Runnable() {@Override public void run() {intro();}
+                                });
+                            }}).start();
+                        }
+
+                        @Override
+                        public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                        }
+
+                        @Override
+                        public void onShowcaseViewTouchBlocked(MotionEvent motionEvent) {
+
+                        }
+                    })
+                    .build();
+        }else if(introCounter==1){
+            ++introCounter;
+            overlay = new ShowcaseView.Builder(this).replaceEndButton(R.layout.got_it)
+                    .setTarget(new PointTarget(50, 60))
+                    .replaceEndButton((Button) getLayoutInflater().inflate(R.layout.got_it, (RelativeLayout) findViewById(R.id.main_parent), false))
+                    .setContentTitle("Instructions")
+                    .setContentText(getResources().getText(R.string.welcome2) + "\n" + getResources().getText(R.string.signoff))
+                    .setShowcaseEventListener(new OnShowcaseEventListener() {
+                        @Override
+                        public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                        }
+
+                        @Override
+                        public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            intro();
+                                        }
+                                    });
+                                }
+                            }).start();
                         }
 
                         @Override
@@ -97,28 +146,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -138,11 +165,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-    public class SettingsDialogue extends Activity {
-        @Override
-        public void onCreate(Bundle b){
-            super.onCreate(b);
-        }
     }
 }
