@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Buddhism</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome1">Hello!\nThis application was designed with the express intent of giving the answers to three distinct questions regarding Buddhism assigned to me (and the rest of my class) by Helena Sontag.</string>
+    <string name="welcome2">To begin, swipe from the left of your screen to open the navigation bar. Simply click on the answer you would like to view from the navigation bar to navigate to the corresponding answer.</string>
+    <string name="signoff">Sincerely, Gabriel Tofvesson</string>
+</resources>
