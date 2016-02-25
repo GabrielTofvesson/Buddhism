@@ -12,31 +12,27 @@
     tools:context="com.gabriel.buddhism.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:id="@+id/main_parent">
+
     <RelativeLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:id="@+id/Welcome1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:text="@string/welcome1" />
-        <TextView
-            android:id="@+id/Welcome2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="@string/swipe"
+            android:id="@+id/swipe"/>
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_marginStart="10sp"
+            android:layout_marginLeft="10sp"
             android:layout_marginTop="15sp"
-            android:layout_below="@id/Welcome1"
-            android:textSize="17sp"
-            android:text="@string/welcome2"/>
-        <TextView
-            android:id="@+id/signoff"
-            android:layout_width="wrap_content"
+            android:layout_below="@id/swipe"
+            android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15sp"
-            android:layout_below="@id/Welcome2"
-            android:textSize="15sp"
-            android:text="@string/signoff"/>
+            android:src="@drawable/swipe_arrow"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
     </RelativeLayout>
 </RelativeLayout>
