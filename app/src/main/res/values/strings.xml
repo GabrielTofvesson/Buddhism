@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">Buddhism</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="welcome1">Hello!\nThis application was designed with the express intent of giving the answers to three distinct questions regarding Buddhism assigned to me (and the rest of my class) by Helena Sontag.</string>
@@ -14,4 +13,10 @@
     <string name="answer2">In both the Theravada and Mahayana subsets of the religion, Nirvana is considered to be an abstract state of being where judgement can’t be made and “one” is truly enlightened. Both subsets speak of steps that one takes to achieve such a state which on one hand makes them similar, though on the other hand the different subsets speak very differently about how one reaches Nirvana despite the similar names. For example: The Mahayana subset explains that one must follow the five paths that lead through ten steps to enlightenment and that one by the end will have reached Nirvana. It is also definitely worth mentioning that the Mahayana subset doesn’t consider Nirvana to be a final destination, but rather a conduit allowing an enlightened to return to earth to free other creatures. As opposed to Mahayana, Theravada explains that one must follow four steps to become arhat (enlightened) which implies that the follower has been freed from the ten fetters (shackles of humanity). This means that Theravada considers Nirvana to be a final destination, a resting place after a hard life, while Mahayana sees Nirvana as a pathway for the enlightened to follow to help others reach it.</string>
     <string name="answer3">On one hand, thirst for life could mean that a person doesn’t want to die and perpetually attempt to avoid it at all costs. On the other hand, it could refer to someone who doesn’t want to be enlightened and therefore willingly continues being re-born. Either way, they both follow a path of fear and/or general non-enlightenment and keep it that way, meaning that they could never reach Nirvana. As Nirvana is an almost direct opposite to life, as it implies no re-birth and no Karma, it could be argued that Nirvana is what Buddha meant by “true joy”. It is, though, this juxtaposition between Nirvana and life delimited by a thin line that is death that may deter certain individuals from attaining such a state of mind such that they would reach Nirvana. This could mean that Nirvana is both the cause and solution to the fact that life is suffering, as it is the sole reason for why some individuals want to continue living.</string>
     <string name="swipe">Swipe from the left of your screen</string>
+    <string name="sttr">Swipe to the right</string>
+    <string name="lang">If you are so inclined, you may select another language</string>
+    <string name="lang_en">English</string>
+    <string name="lang_sv">Swedish</string>
+    <string name="welcome">Welcome</string>
+    <string name="introduction">Introduction</string>
 </resources>
