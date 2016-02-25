@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity
 
                         }
 
+
                         @Override
                         public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
                             new Thread(new Runnable() {
