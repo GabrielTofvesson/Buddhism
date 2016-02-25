@@ -12,6 +12,7 @@
     tools:context="com.gabriel.buddhism.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:id="@+id/main_parent">
+
     <RelativeLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
