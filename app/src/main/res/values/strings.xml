@@ -19,4 +19,8 @@
     <string name="lang_sv">Swedish</string>
     <string name="welcome">Welcome</string>
     <string name="introduction">Introduction</string>
+    <string name="label_q1">Question 1</string>
+    <string name="label_q2">Question 2</string>
+    <string name="label_q3">Question 3</string>
+    <string name="label_home">Home</string>
 </resources>
