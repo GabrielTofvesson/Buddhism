@@ -174,7 +174,12 @@ public class MainActivity extends AppCompatActivity
     private void loadCorrespondingView(int id){
         ((RelativeLayout) findViewById(R.id.main_parent)).removeAllViewsInLayout();
         RelativeLayout v = (RelativeLayout) getLayoutInflater().inflate(R.layout.dynamic_answer, ((RelativeLayout) findViewById(R.id.main_parent)));
-        if (id == R.id.nav_question1) {
+        if(id == R.id.nav_home){
+            LayoutInflater l = getLayoutInflater();
+            View v1 = l.inflate(R.layout.dynamic_welcome, (RelativeLayout) findViewById(R.id.main_parent));
+            v1.findViewById(R.id.arrow).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.arrow_anim));
+            viewStage = 1;
+        }else if (id == R.id.nav_question1) {
             viewStage=2;
             ((TextView) v.findViewById(R.id.question)).setText(getResources().getText(R.string.question1));
             ((TextView) v.findViewById(R.id.answer)).setText(getResources().getText(R.string.answer1));
